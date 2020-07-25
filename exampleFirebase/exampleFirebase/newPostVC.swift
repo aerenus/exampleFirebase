@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
-class newPostVC: UIViewController {
+class newPostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var desc: UITextField!
+    @IBOutlet weak var imageDesc: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,8 @@ class newPostVC: UIViewController {
         // Do any additional setup after loading the view.
         
         image.isUserInteractionEnabled = true
+        let imageTap = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        image.addGestureRecognizer(imageTap)
     }
     
 
@@ -34,12 +38,25 @@ class newPostVC: UIViewController {
 
 
     @IBAction func uploadBtn(_ sender: Any) {
-        let imageTap = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-        image.addGestureRecognizer(imageTap)
+        let storage = Storage
     }
     
     @objc func imageTapped(){
         print("gesture ok")
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        
+        //.camera doesnt works on simulator
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        image.image = info[.originalImage] as? UIImage
+        self.dismiss(animated: true, completion: nil)
+        imageDesc.text = "You can change image by clicking to image"
+        imageDesc.font = UIFont(name: "System", size: 17)
     }
     
 }
