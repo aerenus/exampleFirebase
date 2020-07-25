@@ -57,9 +57,9 @@ class newPostVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                         imageReferance.downloadURL { (url, error) in
                         if error != nil {
                             let imgURL = url?.absoluteString
-                            print(imgURL)
+                            print(imgURL ?? "IMGURL VAL")
                         } else {
-                            print(error?.localizedDescription)
+                            print(error?.localizedDescription ?? "ERR VAL")
                             }
                     }
                 }
