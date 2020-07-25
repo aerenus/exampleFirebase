@@ -38,7 +38,9 @@ class newPostVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
 
 
     @IBAction func uploadBtn(_ sender: Any) {
-        let storage = Storage
+        //let storage = Storage
+        let storage = Storage.storage()
+    
     }
     
     @objc func imageTapped(){

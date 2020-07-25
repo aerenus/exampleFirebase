@@ -6,7 +6,12 @@ target 'exampleFirebase' do
   use_frameworks!
 
   # Pods for exampleFirebase
+
+pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
+pod 'Firebase/Core'
 pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
+pod 'SDWebImage'
 
 end
