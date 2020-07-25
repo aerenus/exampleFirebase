@@ -40,6 +40,32 @@ class newPostVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBAction func uploadBtn(_ sender: Any) {
         //let storage = Storage
         let storage = Storage.storage()
+        let storageReferance = storage.reference()
+        let mediaFolder = storageReferance.child("media")
+        
+        if let data = image.image?.jpegData(compressionQuality: 0.5) {
+            let ImageUUID = UUID().uuidString
+            let imageReferance = mediaFolder.child("\(ImageUUID).jpg")
+            let alert = UIAlertController.init(title: "Please wait.", message: "File upload in progress", preferredStyle: .alert)
+            present(alert, animated: true)
+            imageReferance.putData(data, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    print(error?.localizedDescription ?? "Error.")
+                    
+                } else {
+                        alert.dismiss(animated: true, completion: nil)
+                        imageReferance.downloadURL { (url, error) in
+                        if error != nil {
+                            let imgURL = url?.absoluteString
+                            print(imgURL)
+                        } else {
+                            print(error?.localizedDescription)
+                            }
+                    }
+                }
+            }
+            
+        }
     
     }
     
