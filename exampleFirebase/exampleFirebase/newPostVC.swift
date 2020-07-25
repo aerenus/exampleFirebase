@@ -48,16 +48,54 @@ class newPostVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             let imageReferance = mediaFolder.child("\(ImageUUID).jpg")
             let alert = UIAlertController.init(title: "Please wait.", message: "File upload in progress", preferredStyle: .alert)
             present(alert, animated: true)
-            imageReferance.putData(data, metadata: nil) { (metadata, error) in
-                if error != nil {
-                    print(error?.localizedDescription ?? "Error.")
-                    
+            imageReferance.putData(data, metadata: nil) { (metadata, errorPut) in
+                if errorPut != nil {
+                    alert.dismiss(animated: false, completion: nil)
+                    print(errorPut?.localizedDescription ?? "Error.")
+                    let alertErr = UIAlertController(title: "Error", message: errorPut?.localizedDescription, preferredStyle: .alert)
+                    let button = UIAlertAction.init(title: "OK", style: .default, handler: nil)
+                    alertErr.addAction(button)
+                    self.present(alertErr, animated: true)
                 } else {
                         alert.dismiss(animated: true, completion: nil)
                         imageReferance.downloadURL { (url, error) in
-                        if error != nil {
+                        if error == nil {
                             let imgURL = url?.absoluteString
                             print(imgURL ?? "IMGURL VAL")
+                            
+                            
+                            
+                            let fireStoreDB = Firestore.firestore()
+                            var fireStoreRef : DocumentReference? = nil
+                            let userID = Auth.auth().currentUser!.uid
+                            
+                            let fireStorePost = [
+                                "imageURL" : imgURL!,
+                                "postedBy" : Auth.auth().currentUser!.email!,
+                                "postDesc" : self.desc.text ?? "",
+                                "date" : "date",
+                                "like" : 0,
+                                ] as [String : Any]
+                            
+                            fireStoreRef = fireStoreDB.collection("Posts").addDocument(data: fireStorePost, completion: { (errorPost) in
+                                if errorPost != nil {
+                                    print(errorPost?.localizedDescription ?? "ERR VAL")
+                                } else {
+                                    print("New post created, user id \(userID)")
+                                    //tabbar ile calisiyorsak tabbarcontroller ile yoksa segue
+                                    //self.performSegue(withIdentifier: "newPostAdded", sender: nil)
+                                    
+                                    self.image.image = UIImage(systemName: "square.and.arrow.up.fill")
+                                    self.desc.text = ""
+                                    self.imageDesc.text = "Please select an image"
+                                    self.imageDesc.font = UIFont(name: "System", size: 20)
+                                    
+                                    self.tabBarController?.selectedIndex = 0
+                                }
+                            })
+                            
+                            
+                            
                         } else {
                             print(error?.localizedDescription ?? "ERR VAL")
                             }

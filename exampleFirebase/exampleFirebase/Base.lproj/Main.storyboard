@@ -140,7 +140,7 @@ If you did not create an account before you can create by clicking Sign Up butto
             </objects>
             <point key="canvasLocation" x="-552.17391304347825" y="69.642857142857139"/>
         </scene>
-        <!--Item-->
+        <!--Settings-->
         <scene sceneID="6eK-C1-u4k">
             <objects>
                 <viewController id="Fni-jR-8dX" customClass="thirdVC" customModule="exampleFirebase" customModuleProvider="target" sceneMemberID="viewController">
@@ -170,7 +170,7 @@ If you did not create an account before you can create by clicking Sign Up butto
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="C6E-9K-jlZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="8hm-SC-2f3"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="8hm-SC-2f3"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toFirst" modalPresentationStyle="fullScreen" id="Bqp-bm-ka6"/>
                     </connections>
@@ -237,6 +237,7 @@ If you did not create an account before you can create by clicking Sign Up butto
                         <outlet property="desc" destination="Mzc-I8-1lN" id="9Mz-qe-oES"/>
                         <outlet property="image" destination="Cg8-D6-Zbv" id="Mg1-8V-2FN"/>
                         <outlet property="imageDesc" destination="Mv8-gh-z0z" id="7Hu-JG-iB5"/>
+                        <segue destination="8EI-4t-dSA" kind="presentation" identifier="newPostAdded" modalPresentationStyle="fullScreen" id="5xh-3u-u5d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tld-HT-y3n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -266,6 +267,7 @@ If you did not create an account before you can create by clicking Sign Up butto
                         <viewLayoutGuide key="safeArea" id="Bgf-hb-MQI"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" selectedImage="square.grid.2x2.fill" catalog="system" id="pOg-Wi-Ocl"/>
+                    <navigationItem key="navigationItem" id="5s8-mH-RFF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBo-qo-eTf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -292,6 +294,9 @@ If you did not create an account before you can create by clicking Sign Up butto
             <point key="canvasLocation" x="200" y="70"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="SSs-D2-sCd"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
