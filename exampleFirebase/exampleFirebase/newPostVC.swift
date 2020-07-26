@@ -73,7 +73,7 @@ class newPostVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                                 "imageURL" : imgURL!,
                                 "postedBy" : Auth.auth().currentUser!.email!,
                                 "postDesc" : self.desc.text ?? "",
-                                "date" : "date",
+                                "date" : FieldValue.serverTimestamp(),
                                 "like" : 0,
                                 ] as [String : Any]
                             
