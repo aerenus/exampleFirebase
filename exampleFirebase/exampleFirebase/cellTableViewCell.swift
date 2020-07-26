@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class cellTableViewCell: UITableViewCell {
 
@@ -36,6 +37,17 @@ class cellTableViewCell: UITableViewCell {
     }
 
     @IBAction func likeBtn(_ sender: Any) {
+        
+        let fireStoreDB = Firestore.firestore()
+        if let likeCount = Int(postLikeCount.text!) {
+            let likeStore = ["like": likeCount+1] as [String : Any]
+            fireStoreDB.collection("Posts").document(postID.text!).setData(likeStore, merge: true)
+            print("update done.")
+            
+            
+            
+        }
+        
     }
     
 }
