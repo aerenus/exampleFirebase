@@ -25,6 +25,8 @@ class cellTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,4 +37,5 @@ class cellTableViewCell: UITableViewCell {
 
     @IBAction func likeBtn(_ sender: Any) {
     }
+    
 }

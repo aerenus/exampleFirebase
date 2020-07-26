@@ -5,7 +5,6 @@
 //  Created by Eren FAIKOGLU on 19.07.2020.
 //  Copyright © 2020 Eren FAIKOGLU. All rights reserved.
 //
-
 import UIKit
 import Firebase
 
@@ -60,4 +59,3 @@ class ViewController: UIViewController {
     self.present(alert, animated: true, completion: nil)
     }
 }
-

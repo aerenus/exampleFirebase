@@ -24,6 +24,11 @@ class feedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var postedByArray = [String]()
     var dateArray = [Date]()
     
+    var selectedImg = ""
+    var selectedPostDesc = ""
+    var selectedLike = ""
+    var selectedPostedBy : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.postIDArray.removeAll()
@@ -37,11 +42,24 @@ class feedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self 
         // Do any additional setup after loading the view.
         getData()
+        
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.postIDArray.removeAll()
+        self.imageURLArray.removeAll()
+        self.likeArray.removeAll()
+        self.postDescArray.removeAll()
+        self.postedByArray.removeAll()
+        self.dateArray.removeAll()
+        getData()
+        tableView.reloadData()
     }
         
     func getData() {
         let fireStoreDatabase = Firestore.firestore()
-        fireStoreDatabase.collection("Posts").addSnapshotListener { (addSnpBlock, snpError) in
+        fireStoreDatabase.collection("Posts").order(by: "date", descending: true).addSnapshotListener { (addSnpBlock, snpError) in
             if snpError != nil {
                 print(snpError?.localizedDescription ?? "Error")
             } else {
@@ -90,17 +108,6 @@ class feedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     
             }
                 self.tableView.reloadData()
-              /*  print(self.postIDArray)
-                print("postIDArray count \(self.postIDArray.count)")
-                print(self.postedByArray)
-                print("postedByArray count \(self.postedByArray.count)")
-                print(self.likeArray)
-                print("likeArray count \(self.likeArray.count)")
-                print(self.imageURLArray)
-                print("imageURLArray count \(self.imageURLArray.count)")
-                print(self.dateArray)
-                print("dateArray count \(self.dateArray.count)")
-                 */
         }
     }
                     
@@ -125,5 +132,31 @@ class feedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    
+
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedImg = imageURLArray[indexPath.row]
+       // var selectedPostDesc = postDescArray[indexPath.row]
+       // var selectedLike = likeArray[indexPath.row]
+        selectedPostedBy = postedByArray[indexPath.row]
+        
+        performSegue(withIdentifier: "imgDet", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "imgDet"{
+            let destinationVC = segue.destination as! imgDet
+            destinationVC.imageelemfull = selectedImg
+            destinationVC.postedbyelemfull = selectedPostedBy
+        }
+    }
+    
+    
+    
+    
+
+
 
 }

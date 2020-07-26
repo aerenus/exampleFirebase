@@ -43,7 +43,7 @@ class newPostVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         let storageReferance = storage.reference()
         let mediaFolder = storageReferance.child("media")
         
-        if let data = image.image?.jpegData(compressionQuality: 0.5) {
+        if let data = image.image?.jpegData(compressionQuality: 0.2) {
             let ImageUUID = UUID().uuidString
             let imageReferance = mediaFolder.child("\(ImageUUID).jpg")
             let alert = UIAlertController.init(title: "Please wait.", message: "File upload in progress", preferredStyle: .alert)
