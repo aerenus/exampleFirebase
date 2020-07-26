@@ -262,11 +262,11 @@ If you did not create an account before you can create by clicking Sign Up butto
                                 <rect key="frame" x="0.0" y="74" width="414" height="788"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="432" id="75F-bs-UVa" customClass="cellTableViewCell" customModule="exampleFirebase" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="432"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="445" id="75F-bs-UVa" customClass="cellTableViewCell" customModule="exampleFirebase" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="445"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="75F-bs-UVa" id="PIp-o1-Aw6">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="432"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="445"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lyB-qz-VIs">
@@ -310,8 +310,15 @@ If you did not create an account before you can create by clicking Sign Up butto
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZqO-kh-lOC">
-                                                    <rect key="frame" x="20" y="378" width="374" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PostID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hx8-Mf-Zfs">
+                                                    <rect key="frame" x="20" y="400" width="51" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZqO-kh-lOC">
+                                                    <rect key="frame" x="20" y="366" width="374" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -346,6 +353,7 @@ If you did not create an account before you can create by clicking Sign Up butto
                                         <connections>
                                             <outlet property="postDate" destination="ZqO-kh-lOC" id="eHz-7G-1gn"/>
                                             <outlet property="postDesc" destination="8d0-6z-leX" id="dUr-7A-hNa"/>
+                                            <outlet property="postID" destination="hx8-Mf-Zfs" id="iSC-Vr-54V"/>
                                             <outlet property="postImg" destination="lyB-qz-VIs" id="1eb-XY-yov"/>
                                             <outlet property="postLikeCount" destination="L61-da-pFI" id="BB2-qc-9FZ"/>
                                             <outlet property="userName" destination="mXe-67-oen" id="Yll-8V-axn"/>

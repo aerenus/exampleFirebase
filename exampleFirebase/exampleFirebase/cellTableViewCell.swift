@@ -20,6 +20,8 @@ class cellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postDate: UILabel!
     
+    @IBOutlet weak var postID: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
