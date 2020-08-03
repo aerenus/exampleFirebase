@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273B2CFA24D7F1A600CB600A /* cellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273B2CF924D7F1A600CB600A /* cellModel.swift */; };
 		275E3AFA24D5E114009B2260 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E3AF924D5E114009B2260 /* SignUp.swift */; };
 		275E3B0224D5EA6A009B2260 /* Interactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E3B0124D5EA6A009B2260 /* Interactions.swift */; };
 		275E3B0824D626CF009B2260 /* feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E3B0724D626CF009B2260 /* feed.swift */; };
 		275E3B0A24D626E4009B2260 /* newPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E3B0924D626E4009B2260 /* newPost.swift */; };
 		275E3B0C24D626F7009B2260 /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E3B0B24D626F7009B2260 /* settings.swift */; };
+		275E3B0E24D6BAEC009B2260 /* selectOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E3B0D24D6BAEC009B2260 /* selectOnMap.swift */; };
+		275E3B1024D73330009B2260 /* cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E3B0F24D73330009B2260 /* cell.swift */; };
 		278E285024D4342900416849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E284F24D4342900416849 /* AppDelegate.swift */; };
 		278E285224D4342900416849 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E285124D4342900416849 /* SceneDelegate.swift */; };
 		278E285424D4342900416849 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E285324D4342900416849 /* SignIn.swift */; };
@@ -23,11 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		273B2CF924D7F1A600CB600A /* cellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellModel.swift; sourceTree = "<group>"; };
 		275E3AF924D5E114009B2260 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		275E3B0124D5EA6A009B2260 /* Interactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactions.swift; sourceTree = "<group>"; };
 		275E3B0724D626CF009B2260 /* feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feed.swift; sourceTree = "<group>"; };
 		275E3B0924D626E4009B2260 /* newPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newPost.swift; sourceTree = "<group>"; };
 		275E3B0B24D626F7009B2260 /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
+		275E3B0D24D6BAEC009B2260 /* selectOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectOnMap.swift; sourceTree = "<group>"; };
+		275E3B0F24D73330009B2260 /* cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cell.swift; sourceTree = "<group>"; };
 		278E284C24D4342900416849 /* exampleFirebase2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exampleFirebase2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		278E284F24D4342900416849 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		278E285124D4342900416849 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +88,9 @@
 				275E3AF924D5E114009B2260 /* SignUp.swift */,
 				275E3B0724D626CF009B2260 /* feed.swift */,
 				275E3B0924D626E4009B2260 /* newPost.swift */,
+				275E3B0D24D6BAEC009B2260 /* selectOnMap.swift */,
+				275E3B0F24D73330009B2260 /* cell.swift */,
+				273B2CF924D7F1A600CB600A /* cellModel.swift */,
 				275E3B0B24D626F7009B2260 /* settings.swift */,
 				275E3B0124D5EA6A009B2260 /* Interactions.swift */,
 				278E285824D4343000416849 /* Assets.xcassets */,
@@ -246,10 +255,13 @@
 				278E285424D4342900416849 /* SignIn.swift in Sources */,
 				275E3B0824D626CF009B2260 /* feed.swift in Sources */,
 				275E3B0C24D626F7009B2260 /* settings.swift in Sources */,
+				275E3B1024D73330009B2260 /* cell.swift in Sources */,
 				275E3AFA24D5E114009B2260 /* SignUp.swift in Sources */,
 				275E3B0A24D626E4009B2260 /* newPost.swift in Sources */,
 				275E3B0224D5EA6A009B2260 /* Interactions.swift in Sources */,
 				278E285024D4342900416849 /* AppDelegate.swift in Sources */,
+				273B2CFA24D7F1A600CB600A /* cellModel.swift in Sources */,
+				275E3B0E24D6BAEC009B2260 /* selectOnMap.swift in Sources */,
 				278E285224D4342900416849 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

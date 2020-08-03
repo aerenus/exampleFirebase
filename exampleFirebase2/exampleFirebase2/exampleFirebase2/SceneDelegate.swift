@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let curUser = Auth.auth().currentUser
         if curUser != nil {
             let board = UIStoryboard(name: "Main", bundle: nil)
-            let tabbar = board.instantiateViewController(identifier: "feed") as! UITabBarController
+            let tabbar = board.instantiateViewController(identifier: "feedID") as! UITabBarController
             window?.rootViewController = tabbar
         }
         

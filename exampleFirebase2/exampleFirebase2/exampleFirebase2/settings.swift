@@ -68,6 +68,7 @@ class settings: UIViewController {
             
             //feed view controller adi
             let secondVC = storyboard?.instantiateViewController(withIdentifier: "signin") as! SignIn
+            secondVC.modalPresentationStyle = .fullScreen
             self.present(secondVC, animated:true, completion:nil)
             
         }
