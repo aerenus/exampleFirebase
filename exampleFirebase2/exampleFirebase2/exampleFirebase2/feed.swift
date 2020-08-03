@@ -32,9 +32,7 @@ class feed: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLoca
         locationManager.startUpdatingLocation()
         
         
-        getData()
-        
-        
+        getData()     
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

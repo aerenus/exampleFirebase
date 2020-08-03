@@ -12,10 +12,13 @@ import CoreLocation
 
 class selectOnMap: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
+    @IBOutlet weak var keyword: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     var selectedLat = 0.0
     var selectedLong = 0.0
+    
+    let searchRequest = MKLocalSearch.Request()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,18 +47,6 @@ class selectOnMap: UIViewController, CLLocationManagerDelegate, MKMapViewDelegat
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 
     
     @objc func chooseLocation(gestureRecognizer:UILongPressGestureRecognizer){
@@ -102,4 +93,29 @@ class selectOnMap: UIViewController, CLLocationManagerDelegate, MKMapViewDelegat
         }
     }
     
-}
+    @IBAction func searchBtn(_ sender: Any) {
+        searchRequest.naturalLanguageQuery = keyword.text
+        let searchMKL = MKLocalSearch(request: searchRequest)
+
+        searchMKL.start { (Response, Error) in
+            guard let response = Response else {
+                print(Error?.localizedDescription ?? "Unknown error")
+                searchMKL.cancel()
+                return
+            }
+           /* for item in response.mapItems {
+                print(item.name ?? "no name")
+                print(item.phoneNumber ?? "no phone")
+                print(item.url ?? "no url")
+
+            } */
+            let locationMK = CLLocationCoordinate2D(latitude: response.mapItems[0].placemark.location?.coordinate.latitude ?? 0.0,
+                                                    longitude: response.mapItems[0].placemark.location?.coordinate.longitude ?? 0.0)
+            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            let region = MKCoordinateRegion(center: locationMK, span: span)
+            self.mapView.setRegion(region, animated: true)
+            searchMKL.cancel()
+        }
+         }
+    }
+
